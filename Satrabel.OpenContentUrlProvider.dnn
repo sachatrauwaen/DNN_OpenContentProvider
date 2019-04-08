@@ -1,0 +1,69 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="Satrabel.OpenContentUrlProvider" type="Module" version="01.00.01">
+      <friendlyName>OpenContent Url Extension Provider</friendlyName>
+      <description>Creates friendly Urls for OpenContent</description>
+      <iconFile>Images/icon_extensions.gif</iconFile>
+      <owner>
+        <name>Sacha Trauwaen</name>
+        <organization>Satrabel</organization>
+        <url>http://www.satrabel.be</url>
+        <email></email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+
+      <dependencies>
+        <dependency type="CoreVersion">07.01.00</dependency>
+      </dependencies>
+      <azureCompatible>true</azureCompatible>
+      <components>
+
+        <component type="UrlProvider">
+          <urlProvider>
+            <name>Opencontent Url Extension Provider</name>
+            <type>Satrabel.Modules.OpenContentUrlProvider.OpenContentUrlProvider</type>
+            
+            <redirectAllUrls>false</redirectAllUrls>
+            <replaceAllUrls>false</replaceAllUrls>
+            <rewriteAllUrls>false</rewriteAllUrls>
+            <desktopModule>OpenContent</desktopModule>
+          </urlProvider>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>Satrabel.OpenContentUrlProvider.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+
+        <component type="Config">
+          <config>
+            <configFile>web.config</configFile>
+            <install>
+              <configuration>
+                <nodes>
+                  <node path="/configuration/dotnetnuke/sitemap/providers"
+                        action="update" key="name" collision="ignore">
+                    <add name="openContentSitemapProvider" type="Satrabel.OpenContent.Providers.SitemapProviders.OpenContentSitemapProvider, OpenContent" providerPath="~\Providers\MembershipProviders\Sitemap\OpenContentSitemapProvider\" />
+                  </node>
+                </nodes>
+              </configuration>
+            </install>
+            <uninstall>
+              <configuration>
+                <nodes>
+                  <node path="/configuration/dotnetnuke/sitemap/providers/add[@name='openContentSitemapProvider']" action="remove" />
+                </nodes>
+              </configuration>
+            </uninstall>
+          </config>
+        </component>
+
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

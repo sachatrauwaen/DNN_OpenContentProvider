@@ -1,0 +1,14 @@
+﻿<h3>DNN.SocialUrlProvider</h3>
+<hr/>
+<div class="License">
+	<h3>About the DNN.SocialUrlProvider</h3>
+	<p class="Owner">
+		<b>Version 01.00.01 - 1st August 2013</b>
+		<ul>
+			<li>24572 : Returns 404 error when specifying a dnn page path to make root-level Urls</li>
+		</ul>
+		<b>Version 01.00.00 - 6th June 2013</b>
+	</p>
+	<p>Initial Release of the DNN Social Urls Provider.</p>
+	
+</div>

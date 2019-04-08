@@ -1,0 +1,7 @@
+C:\sacha\dnn\satrabel\Website\DesktopModules\DNN_OpenContentProvider\obj\Debug\Satrabel.OpenContentUrlProvider.csprojAssemblyReference.cache
+C:\sacha\dnn\satrabel\Website\DesktopModules\DNN_OpenContentProvider\obj\Debug\Satrabel.OpenContentUrlProvider.csproj.CoreCompileInputs.cache
+C:\sacha\dnn\satrabel\Website\DesktopModules\DNN_OpenContentProvider\obj\Debug\Satrabel.OpenContentUrlProvider.dll
+C:\sacha\dnn\satrabel\Website\DesktopModules\DNN_OpenContentProvider\obj\Debug\Satrabel.OpenContentUrlProvider.pdb
+C:\sacha\dnn\satrabel\Website\bin\Satrabel.OpenContentUrlProvider.dll
+C:\sacha\dnn\satrabel\Website\bin\Satrabel.OpenContentUrlProvider.pdb
+C:\sacha\dnn\satrabel\Website\DesktopModules\DNN_OpenContentProvider\obj\Debug\Satrabel.OpenContentUrlProvider.csproj.CopyComplete

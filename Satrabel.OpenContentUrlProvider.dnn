@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Satrabel.OpenContentUrlProvider" type="Module" version="01.00.01">
+    <package name="Satrabel.OpenContentUrlProvider" type="Module" version="02.00.00">
       <friendlyName>OpenContent Url Extension Provider</friendlyName>
       <description>Creates friendly Urls for OpenContent</description>
       <iconFile>Images/icon_extensions.gif</iconFile>

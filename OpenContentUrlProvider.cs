@@ -12,7 +12,6 @@ using DotNetNuke.Entities.Portals;
 using System.Linq;
 
 namespace Satrabel.Modules.OpenContentUrlProvider
-
 {
     public class OpenContentUrlProvider : DotNetNuke.Entities.Urls.ExtensionUrlProvider
     {
@@ -39,29 +38,32 @@ namespace Satrabel.Modules.OpenContentUrlProvider
             {
                 Hashtable friendlyUrlIndex = null; //the friendly url index is the lookup we use
                 //try and match incoming friendly url path to what we would expect from the module
-                Regex groupUrlRegex = new Regex(@"(?<l>/)?id/(?<id>\d+)", RegexOptions.IgnoreCase);
+                //Regex groupUrlRegex = new Regex(@"(?<l>/)?id/(?<id>\d+)", RegexOptions.IgnoreCase);
+                Regex groupUrlRegex = new Regex(@"(?<l>/)?id/(?<id>[a-zA-Z0-9]+)", RegexOptions.IgnoreCase);
                 Match groupUrlMatch = groupUrlRegex.Match(friendlyUrlPath);
                 if (groupUrlMatch.Success)
                 {
 
                     //this is a group Url we want to try and modify
                     string rawId = groupUrlMatch.Groups["id"].Value;
-                    int id = 0;
-                    if (int.TryParse(rawId, out id))
+                    // int id = 0;
+                    //if (int.TryParse(rawId, out id))
+                    if (!string.IsNullOrEmpty(rawId))
                     {
                         //we have obtained the groupId out of the Url
                         //get the friendlyUrlIndex (it comes from the database via the cache)
-                        var rules = Satrabel.OpenContent.Components.UrlRewriter.OpenContentUrlProvider.GetRules(tab.PortalID)
+                        var rules = Satrabel.OpenContent.Components.UrlRewriter.OpenContentUrlProvider
+                                    .GetRules(tab.PortalID)
                                     .Where(r => r.TabId == tab.TabID);
                         //friendlyUrlIndex = UrlController.GetFriendlyUrlIndex(tab.PortalID, this, options);
 
 
                         string path = null;
                         //check for a child pages / group ID in the index first
-                        var rule = rules.FirstOrDefault(r => r.Parameters == "id=" + id && r.CultureCode == cultureCode);
+                        var rule = rules.FirstOrDefault(r => r.Parameters == "id=" + rawId && r.CultureCode == cultureCode);
                         if (rule == null)
                         {
-                            rule = rules.FirstOrDefault(r => r.Parameters == "id=" + id && r.CultureCode == null);
+                            rule = rules.FirstOrDefault(r => r.Parameters == "id=" + rawId && r.CultureCode == null);
                         }
                         if (rule != null)
                         {
